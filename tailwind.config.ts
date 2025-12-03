@@ -24,8 +24,8 @@ const config: Config = {
     },
     extend: {
       fontFamily: {
-        sans: "var(--font-sans)",
-        serif: "var(--font-serif)",
+        sans: ["var(--font-sans)", "sans-serif"], // For Poppins
+        serif: ["var(--font-serif)", "serif"], // For Calistoga
       },
       colors: {
         background: "var(--background)",

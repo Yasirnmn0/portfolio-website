@@ -1,5 +1,5 @@
 import { Html, Head, Main, NextScript } from "next/document";
-import { inter, calistoga } from "@/pages/_app";
+import { poppins, calistoga } from "@/pages/_app";
 import { twMerge } from "tailwind-merge";
 export default function Document() {
   return (
@@ -7,7 +7,7 @@ export default function Document() {
       <Head />
       <body
         className={twMerge(
-          inter.variable,
+          poppins.variable,
           calistoga.variable,
           "bg-gray-900 text-white antialiased font-sans"
         )}

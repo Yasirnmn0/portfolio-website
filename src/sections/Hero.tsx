@@ -1,27 +1,29 @@
+"use client";
 import memojiImage from "@/assets/images/memoji-computer.png";
 import Image from "next/image";
 import ArrowDown from "@/assets/icons/arrow-down.svg";
 import grainImage from "@/assets/images/grain.jpg";
-import { url } from "inspector";
 import StarIcon from "@/assets/icons/star.svg";
 import { HeroOrbit } from "@/components/HeroOrbit";
 import SparkleIcon from "@/assets/icons/sparkle.svg";
 import { useRef } from "react";
+import { Download } from "lucide-react";
 
-const HeroSection = () => {
-  const projectsRef = useRef<HTMLDivElement>(null);
-
-  // Function to scroll to the projects section
-  const scrollToProjects = () => {
-    projectsRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
-
+const bgImage = `url(${grainImage.src})`;
+interface HeroSectionProps {
+  onScrollToProjects: () => void;
+  onScrollToContact: () => void;
+}
+const HeroSection = ({
+  onScrollToProjects,
+  onScrollToContact,
+}: HeroSectionProps) => {
   return (
     <div className="py-32 md:py-48 lg:py-60 relative z-0 overflow-x-clip">
       <div className="absolute inset-0 mask-gradientbottom">
         <div
           className="absolute inset-0 -z-30 opacity-5"
-          style={{ backgroundImage: `url(${grainImage.src})` }}
+          style={{ backgroundImage: bgImage }}
         ></div>
         <div className="size-[620px] hero-ring"></div>
         <div className="size-[820px] hero-ring"></div>
@@ -124,26 +126,36 @@ const HeroSection = () => {
             </div>
           </div>
           <div className="max-w-lg mx-auto">
-            <h1 className="font-serif text-3xl md:text-5xl text-center mt-8 tracking-wide">
+            <h1 className="relative z-50 font-serif text-3xl md:text-5xl text-center mt-8 tracking-wide">
               Building Exceptional User Experiences
             </h1>
             <p className="mt-4 text-center text-white/60 md:text-lg">
-              I Specialize in transforming design into functional, high
-              proforming web applications. Let's discuss your next project.
+              Let’s collaborate to turn your vision into a high-performing web
+              application.
             </p>
           </div>
           <div className="flex flex-col items-center md:flex-row justify-center mt-8 gap-4">
             <button
-              onClick={scrollToProjects}
-              className="inline-flex items-center gap-2 border border-white/15 px-6 h-12 rounded-xl"
+              onClick={onScrollToProjects}
+              className="relative z-50 inline-flex items-center gap-2 border border-white/15 px-6 h-12 rounded-xl"
             >
               <span className="font-semibold">Explore My Work</span>
               <ArrowDown className="size-4" />
             </button>
-            <button className="inline-flex items-center gap-2 border border-white bg-white text-gray-900 h-12 px-6 rounded-xl">
+            <button
+              className="relative z-50 inline-flex items-center gap-2 border border-white bg-white text-gray-900 h-12 px-6 rounded-xl"
+              onClick={onScrollToContact}
+            >
               <span>👋</span>
               <span className="font-semibold">Let's Connect</span>
             </button>
+            {/* <button
+              onClick={onScrollToContact}
+              className="mt-6 md:mt-0 bg-gradient-to-tr from-emerald-400 to-sky-500 text-white font-semibold px-4 py-3 rounded-lg inline-flex items-center gap-2 transition-transform hover:scale-105"
+            >
+              <Download size={20} />
+              Download Resume
+            </button> */}
           </div>
         </div>
       </div>

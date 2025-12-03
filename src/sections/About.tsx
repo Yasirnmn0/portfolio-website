@@ -6,20 +6,28 @@ import JavaScriptIcon from "@/assets/icons/square-js.svg";
 import HTMLIcon from "@/assets/icons/html5.svg";
 import CssIcon from "@/assets/icons/css3.svg";
 import ReactIcon from "@/assets/icons/react.svg";
-import ChromeIcon from "@/assets/icons/chrome.svg";
 import GithubIcon from "@/assets/icons/github.svg";
+import NodeIcon from "@/assets/icons/node-js.svg";
+import NextIcon from "@/assets/icons/Next.js.svg";
+import BootsrapIcon from "@/assets/icons/bootstrap-svgrepo-com.svg";
+import MongoIcon from "@/assets/icons/mongodb.svg";
+import ExIcon from "@/assets/icons/Express.svg";
+import TailwindIcon from "@/assets/icons/tailwind-css-svgrepo-com.svg";
 import mapImage from "@/assets/images/map.png";
 import smileMemoji from "@/assets/images/memoji-smile.png";
 import { CardHeader } from "@/components/CardHeader";
 import { ToolboxItems } from "@/components/ToolboxItems";
 import { motion } from "framer-motion";
 import { useRef } from "react";
+import dynamic from "next/dynamic";
+import "leaflet/dist/leaflet.css";
+import MapComponent from "@/components/Map";
+
+const MapWithNoSSR = dynamic(() => import("../components/Map"), {
+  ssr: false,
+});
 
 const toolboxItems = [
-  {
-    title: "JavaScript",
-    iconType: JavaScriptIcon,
-  },
   {
     title: "HTML5",
     iconType: HTMLIcon,
@@ -29,15 +37,40 @@ const toolboxItems = [
     iconType: CssIcon,
   },
   {
-    title: "React",
+    title: "Tailwind CSS",
+    iconType: TailwindIcon,
+  },
+  {
+    title: "Bootstrap",
+    iconType: BootsrapIcon,
+  },
+  {
+    title: "JavaScript",
+    iconType: JavaScriptIcon,
+  },
+
+  {
+    title: "React js",
     iconType: ReactIcon,
   },
   {
-    title: "Chrome",
-    iconType: ChromeIcon,
+    title: "Next js",
+    iconType: NextIcon,
   },
   {
-    title: "Github",
+    title: "Node js",
+    iconType: NodeIcon,
+  },
+  {
+    title: "Express js",
+    iconType: ExIcon,
+  },
+  {
+    title: "MongoDB",
+    iconType: MongoIcon,
+  },
+  {
+    title: "GitHub",
     iconType: GithubIcon,
   },
 ];
@@ -157,7 +190,7 @@ export const AboutSection = () => {
               </div>
             </Card>
             <Card className="h-[320px] p-0 relative md:col-span-2 lg:col-span-1">
-              <Image
+              {/* <Image
                 src={mapImage}
                 alt="Map"
                 className="h-full w-full object-cover object-left-top"
@@ -170,7 +203,8 @@ export const AboutSection = () => {
                   alt="simle memoji"
                   className="size-20"
                 />
-              </div>
+              </div> */}
+              <MapWithNoSSR />
             </Card>
           </div>
         </div>
