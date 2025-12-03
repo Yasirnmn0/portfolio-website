@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import { Card } from "@/components/Card";
 import { Mail, Phone, Linkedin, Facebook, Instagram, X } from "lucide-react";
 import ArrowUpRightIcon from "@/assets/icons/arrow-up-right.svg";

@@ -6,8 +6,6 @@ import grainImage from "@/assets/images/grain.jpg";
 import StarIcon from "@/assets/icons/star.svg";
 import { HeroOrbit } from "@/components/HeroOrbit";
 import SparkleIcon from "@/assets/icons/sparkle.svg";
-import { useRef } from "react";
-import { Download } from "lucide-react";
 
 const bgImage = `url(${grainImage.src})`;
 interface HeroSectionProps {
@@ -147,7 +145,7 @@ const HeroSection = ({
               onClick={onScrollToContact}
             >
               <span>👋</span>
-              <span className="font-semibold">Let's Connect</span>
+              <span className="font-semibold"> Let&apos;s Connect</span>
             </button>
             {/* <button
               onClick={onScrollToContact}

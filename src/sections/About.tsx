@@ -13,15 +13,12 @@ import BootsrapIcon from "@/assets/icons/bootstrap-svgrepo-com.svg";
 import MongoIcon from "@/assets/icons/mongodb.svg";
 import ExIcon from "@/assets/icons/Express.svg";
 import TailwindIcon from "@/assets/icons/tailwind-css-svgrepo-com.svg";
-import mapImage from "@/assets/images/map.png";
-import smileMemoji from "@/assets/images/memoji-smile.png";
 import { CardHeader } from "@/components/CardHeader";
 import { ToolboxItems } from "@/components/ToolboxItems";
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import dynamic from "next/dynamic";
 import "leaflet/dist/leaflet.css";
-import MapComponent from "@/components/Map";
 
 const MapWithNoSSR = dynamic(() => import("../components/Map"), {
   ssr: false,
